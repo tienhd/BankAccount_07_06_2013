@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 public class BankAccount {
-
+    public static BankAccountDao bankAccountDao;
     public static void saveRecordToDB(BankAccountDTO capture) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
@@ -18,8 +18,11 @@ public class BankAccount {
     }
 
     public static void openAccount(String accountNumber) {
+        BankAccountDTO accountDTO = new BankAccountDTO(accountNumber);
+        bankAccountDao.saveRecordToDB(accountDTO);
     }
 
     public static void setBankAccountDao(BankAccountDao mockBankAccountDao) {
+        bankAccountDao = mockBankAccountDao;
     }
 }
